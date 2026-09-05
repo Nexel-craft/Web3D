@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice 3 — Caméra orbitale</title>
+</head>
+<body>
+  <p style="position: fixed; top: 10px; left: 10px; z-index: 1000; background: #fff; padding: 6px 10px; border: 1px solid #000; margin: 0;"><a href="index.html">← Retour à l'accueil</a> — W/A/S/D déplace le cube, bouton gauche + souris pour orbiter, molette pour zoomer.</p>
+
+  <a-scene>
+    <a-sky src="assets/textures/sky.jpg"></a-sky>
+    <a-plane id="ground" src="assets/textures/grass.jpg" repeat="25 25" rotation="-90 0 0" width="80" height="80" position="0 0 0"></a-plane>
+    <a-light type="ambient" intensity="0.65"></a-light>
+    <a-light type="directional" intensity="0.9" position="-2 5 3"></a-light>
+    <a-box id="player" color="#ff6b6b" width="1" height="1" depth="1" keyboard-movement="ground: #ground"></a-box>
+    <a-entity id="camera-rig" orbit-camera="target: #player; distance: 8; minDistance: 2; maxDistance: 20">
+      <a-entity camera></a-entity>
+    </a-entity>
+  </a-scene>
+
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>
